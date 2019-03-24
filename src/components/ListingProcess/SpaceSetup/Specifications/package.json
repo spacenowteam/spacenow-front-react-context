@@ -1,0 +1,7 @@
+{
+  "name": "Specification",
+  "description": "Component to show the basic specifications of a space.",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./Specification.js"
+}

@@ -1,9 +1,9 @@
 import React from 'react'
 
+import SpaceSetup from './../../components/ListingProcess/SpaceSetup/SpaceSetup'
+
 const Listing = props => {
-    return <div>
-        Listing
-    </div>
+  return <SpaceSetup />
 }
 
-export default Listing;
+export default Listing
