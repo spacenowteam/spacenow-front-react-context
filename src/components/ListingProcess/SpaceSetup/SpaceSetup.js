@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 // import Title from './../Title';
 // import Footer from './../Footer';
 
-// import Specification from './Specifications/Specification';
+import Specification from './Specifications/Specification';
 // import BookingType from './BookingType/BookingType';
 // import Pricing from './Pricing/Pricing';
 // import PhotosList from './PhotosListing/PhotosListing';
@@ -29,10 +29,10 @@ import PropTypes from 'prop-types'
 
 import { startSpaceSetupBySpaceId } from '../../../actions/SpaceSetup'
 
-// import {
-//   getSpecificationBySpaceId,
-//   saveSpecificationForSpaceId,
-// } from './../../../actions/Specification';
+import {
+  getSpecificationBySpaceId,
+  saveSpecificationForSpaceId,
+} from './../../../actions/Specification';
 
 // import { getBookingTypeBySpaceId, saveBookingTypeForSpaceId } from './../../../actions/BookingType';
 
@@ -73,7 +73,7 @@ class SpaceSetup extends React.Component {
   componentDidMount() {
     const { parentId } = this.props
     this.props.startSpaceSetup(parentId)
-    // this.props.fetchSpecification(parentId);
+    this.props.fetchSpecification(parentId);
     // this.props.fetchBookingType(parentId);
     // this.props.fetchPricing(parentId);
     // this.props.fetchPhotos(parentId);
@@ -89,7 +89,7 @@ class SpaceSetup extends React.Component {
   }
 
   _onSave = () => {
-    // this._saveSpecification();
+    this._saveSpecification();
     // this._saveBookingType();
     // this._savePricing();
     // this._savePhotos();
@@ -105,10 +105,10 @@ class SpaceSetup extends React.Component {
     this.props.handleChangePage()
   }
 
-  // _saveSpecification = () => {
-  //   const { parentId, specificationValues } = this.props;
-  //   this.props.saveSpecification(specificationValues, parentId);
-  // };
+  _saveSpecification = () => {
+    const { parentId, specificationValues } = this.props;
+    this.props.saveSpecification(specificationValues, parentId);
+  };
 
   // _saveBookingType = () => {
   //   const { parentId, bookingTypeValues } = this.props;
@@ -185,9 +185,9 @@ class SpaceSetup extends React.Component {
         </Row> */}
         <Row className="justify-content-md-center">
           <Col md={6}>
-            {/* <Row>
+            <Row>
               <Specification />
-            </Row> */}
+            </Row>
             {/* <Row>
               <Col md={12} className="title-section">
                 <h3>
@@ -350,8 +350,8 @@ SpaceSetup.propTypes = {
 
   // Actions to sub-components inside the SpaceSetup page.
   startSpaceSetup: PropTypes.func
-  // fetchSpecification: PropTypes.func,
-  // saveSpecification: PropTypes.func,
+  fetchSpecification: PropTypes.func,
+  saveSpecification: PropTypes.func,
   // fetchBookingType: PropTypes.func,
   // saveBookingType: PropTypes.func,
   // fetchPricing: PropTypes.func,

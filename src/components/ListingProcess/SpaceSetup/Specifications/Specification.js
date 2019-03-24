@@ -1,19 +1,19 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { reduxForm, FieldArray } from 'redux-form';
-import { injectIntl } from 'react-intl';
-import { Grid, Row, Col } from 'react-bootstrap';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import React from 'react'
+// import { connect } from 'react-redux';
+// import { reduxForm, FieldArray } from 'redux-form';
+// import { injectIntl } from 'react-intl';
+import { Container, Row, Col } from 'reactstrap'
+// import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
-import Input from './../../components/Input';
+// import Input from './../../components/Input'
 
-import s from './Specification.css';
+import s from './Specification.css'
 
 let Specification = () => (
-  <Grid>
+  <Container>
     <Row>
       <Col md={6}>
-        <FieldArray
+        {/* <FieldArray
           name="data"
           component={({ fields }) => (
             <div className="form-group">
@@ -28,21 +28,23 @@ let Specification = () => (
               ))}
             </div>
           )}
-        />
+        /> */}
       </Col>
     </Row>
-  </Grid>
-);
+  </Container>
+)
 
-Specification = reduxForm({
-  form: 'ListingProcess_SpaceSetup_Specification',
-  destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,
-  enableReinitialize: true,
-})(Specification);
+// Specification = reduxForm({
+//   form: 'ListingProcess_SpaceSetup_Specification',
+//   destroyOnUnmount: false,
+//   forceUnregisterOnUnmount: true,
+//   enableReinitialize: true,
+// })(Specification);
 
-Specification = connect(state => ({
-  initialValues: state.specification,
-}))(Specification);
+// Specification = connect(state => ({
+//   initialValues: state.specification,
+// }))(Specification);
 
-export default injectIntl(withStyles(s)(Specification));
+// export default injectIntl(withStyles(s)(Specification));
+
+export default Specification
