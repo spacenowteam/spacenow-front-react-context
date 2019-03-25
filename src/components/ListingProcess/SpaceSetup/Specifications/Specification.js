@@ -13,53 +13,57 @@ import { useSpecification } from '../../../../context/providers/SpecificationPro
 import s from './Specification.css'
 
 const Specification = props => {
-
   const [specification, dispatch] = useSpecification()
 
-  useEffect( async () => {
-    const variables = {
-      listSettingsParentId: props.parentId,
-    };
+  useEffect(async () => {
+    console.log(props)
 
     const bodyRequest = {
       query: `
-        query ($listSettingsParentId: Int!) {
-          GetAllSubcategorySpecifications(listSettingsParentId: $listSettingsParentId) {
+        {
+          GetAllSubcategorySpecifications(listSettingsParentId: ${props.parentId}) {
             listSettingsChild {
               id
               itemName
             }
           }
-        }`,
-      variables
-    };
+        }
+      `,
+      variables: {
+        listSettingsParentId: props.parentId
+      }
+    }
 
-    const resp = await fetch("http://localhost:3000/graphql", {
-      method: "POST",
+    console.log(bodyRequest)
+
+    const resp = await fetch('http://localhost:2000/graphql', {
+      method: 'POST',
       body: JSON.stringify(bodyRequest),
       headers: {
-        "Content-Type": "application/json",
-        Autorization: "Test"
-      }
-    });
-    
-    const { data } = await resp.json();
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: "include"
+    })
+
+    console.log(resp)
+
+    const { data } = await resp.json()
 
     console.log(data)
-    
+
     dispatch({
       type: SPECIFICATION_GET_BY_SPACE_ID,
       payload: data.GetAllSubcategorySpecifications
     })
-
   }, [])
 
   return (
     <Container>
+      {console.log(specification)}
       <Row>
         <Col md={6}>
-
-          {}
+          {console.log(specification.data)}
 
           {/* <FieldArray
             name="data"
