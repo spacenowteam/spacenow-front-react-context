@@ -1,5 +1,5 @@
-import React from 'react';
-import DefaultLayout from './containers/DefaultLayout';
+import React from 'react'
+import DefaultLayout from './containers/DefaultLayout'
 
 // const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 // const Cards = React.lazy(() => import('./views/Base/Cards'));
@@ -23,8 +23,8 @@ import DefaultLayout from './containers/DefaultLayout';
 // const ButtonGroups = React.lazy(() => import('./views/Buttons/ButtonGroups'));
 // const Buttons = React.lazy(() => import('./views/Buttons/Buttons'));
 // const Charts = React.lazy(() => import('./views/Charts'));
-const Dashboard = React.lazy(() => import('./views/Dashboard'));
-const Listing = React.lazy(() => import('./views/Listing'));
+const Dashboard = React.lazy(() => import('./views/Dashboard'))
+const Listing = React.lazy(() => import('./views/Listing'))
 // const CoreUIIcons = React.lazy(() => import('./views/Icons/CoreUIIcons'));
 // const Flags = React.lazy(() => import('./views/Icons/Flags'));
 // const FontAwesome = React.lazy(() => import('./views/Icons/FontAwesome'));
@@ -42,7 +42,7 @@ const Listing = React.lazy(() => import('./views/Listing'));
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard, protected: true },
-  { path: '/listing', name: 'Listing', component: Listing },
+  { path: '/listing', name: 'Listing', component: Listing }
   // { path: '/theme', exact: true, name: 'Theme', component: Colors },
   // { path: '/theme/colors', name: 'Colors', component: Colors },
   // { path: '/theme/typography', name: 'Typography', component: Typography },
@@ -82,6 +82,6 @@ const routes = [
   // { path: '/charts', name: 'Charts', component: Charts },
   // { path: '/users', exact: true,  name: 'Users', component: Users },
   // { path: '/users/:id', exact: true, name: 'User Details', component: User },
-];
+]
 
-export default routes;
+export default routes

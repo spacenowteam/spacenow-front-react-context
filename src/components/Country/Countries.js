@@ -1,8 +1,8 @@
-import React from 'react';
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import React from 'react'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 
-import Country from "./Country";
+import Country from './Country'
 
 const GET_ALL_COUNTRIES = gql`
   {
@@ -11,19 +11,15 @@ const GET_ALL_COUNTRIES = gql`
       countryName
     }
   }
-`;
+`
 
 const Countries = () => (
-  <Query
-    query={GET_ALL_COUNTRIES}
-  >
+  <Query query={GET_ALL_COUNTRIES}>
     {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
-      return data.getCountries.map((currentCountry) => 
-        <Country country={currentCountry}></Country>
-      )
+      if (loading) return <p>Loading...</p>
+      if (error) return <p>Error :(</p>
+      return data.getCountries.map(currentCountry => <Country country={currentCountry} />)
     }}
   </Query>
-);
-export default Countries;
+)
+export default Countries
