@@ -1,9 +1,4 @@
+import Dashboard from './Dashboard'
+import Listing from './Listing'
 
-import Dashboard from './Dashboard';
-import Listing from './Listing';
-
-export {
-  Dashboard,
-  Listing
-};
-
+export { Dashboard, Listing }
