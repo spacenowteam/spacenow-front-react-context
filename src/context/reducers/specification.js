@@ -1,11 +1,16 @@
-import { SPECIFICATION_GET_BY_SPACE_ID, SPECIFICATION_SAVING, SPECIFICATION_SAVED } from '../constants'
+import {
+  SPECIFICATION_GET_BY_SPACE_ID,
+  SPECIFICATION_SAVING,
+  SPECIFICATION_SAVED,
+  SPECIFICATION_GET_FAILURE
+} from '../actions/specification'
 
-const initialState = {
+export const initialState = {
   data: [],
   isSaving: false
-}
+};
 
-export default (state = initialState, action) => {
+export const specificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case SPECIFICATION_GET_BY_SPACE_ID: {
       const payload = action.payload

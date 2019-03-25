@@ -83,53 +83,26 @@ const Login = props => {
         <Row className="justify-content-center">
           <Col md="8">
             <CardGroup className="border-transparent">
+              <Card
+                className="d-md-down-none border-0"
+                style={{
+                  width: "44%",
+                  backgroundImage: `url(${logo})`,
+                  backgroundSize: `cover`
+                }}
+              />
               <Card className="p-4 border-0">
                 <CardBody>
-                  <h1>Register</h1>
-                  <p className="text-muted">Create a Spacenow account</p>
+                  <h1>Sign in</h1>
+                  <p className="text-muted">Sign In to your account</p>
                   <Button className="my-3 btn-lg btn-block" color="google-plus">
-                    <i className="fa fa-google" /> Sign up with Google
+                    <i className="fa fa-google" /> Sign in with Google
                   </Button>
                   <Button className="my-3 btn-lg btn-block" color="facebook">
-                    <i className="fa fa-facebook" /> Sign up with Facebook
+                    <i className="fa fa-facebook" /> Sign in with Facebook
                   </Button>
                   <p className="text-muted text-center">or use your email</p>
-
                   <Form onSubmit={submit}>
-                  <Row className="justify-content-center">
-                    <Col>
-                      <InputGroup className="mb-3 input-group-lg">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="fa fa-user" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          type="text"
-                          placeholder="Username"
-                          autoComplete="username"
-                          onChange={e =>
-                            _setLogin({ ..._login, email: e.target.value })
-                          }
-                        />
-                      </InputGroup>
-                      <InputGroup className="mb-4 input-group-lg">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="fa fa-lock" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          type="password"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                          onChange={e =>
-                            _setLogin({ ..._login, password: e.target.value })
-                          }
-                        />
-                      </InputGroup>
-                    </Col>
-                    <Col>
                     <InputGroup className="mb-3 input-group-lg">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
@@ -145,24 +118,22 @@ const Login = props => {
                         }
                       />
                     </InputGroup>
-                      <InputGroup className="mb-4 input-group-lg">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="fa fa-lock" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          type="password"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                          onChange={e =>
-                            _setLogin({ ..._login, password: e.target.value })
-                          }
-                        />
-                      </InputGroup>
-                    </Col>
-                  </Row>
-                  <Row>
+                    <InputGroup className="mb-4 input-group-lg">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="fa fa-lock" />
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        autoComplete="current-password"
+                        onChange={e =>
+                          _setLogin({ ..._login, password: e.target.value })
+                        }
+                      />
+                    </InputGroup>
+                    <Row>
                       <Col xs="6" className="text-left">
                         <Button color="link" className="px-0 btn-sm">
                           Forgot password?
