@@ -12,6 +12,7 @@ import PropTypes from 'prop-types'
 // import Footer from './../Footer';
 
 import Specification from './Specifications/Specification';
+import SpecificationProvider from '../../../context/providers/SpecificationProvider'
 // import BookingType from './BookingType/BookingType';
 // import Pricing from './Pricing/Pricing';
 // import PhotosList from './PhotosListing/PhotosListing';
@@ -72,8 +73,8 @@ import s from './SpaceSetup.css'
 class SpaceSetup extends React.Component {
   componentDidMount() {
     const { parentId } = this.props
-    this.props.startSpaceSetup(parentId)
-    this.props.fetchSpecification(parentId);
+    // this.props.startSpaceSetup(parentId)
+    // this.props.fetchSpecification(parentId);
     // this.props.fetchBookingType(parentId);
     // this.props.fetchPricing(parentId);
     // this.props.fetchPhotos(parentId);
@@ -186,7 +187,9 @@ class SpaceSetup extends React.Component {
         <Row className="justify-content-md-center">
           <Col md={6}>
             <Row>
-              <Specification />
+              <SpecificationProvider>
+                <Specification parentId={this.props.parentId}/>
+              </SpecificationProvider>
             </Row>
             {/* <Row>
               <Col md={12} className="title-section">
@@ -329,9 +332,9 @@ class SpaceSetup extends React.Component {
 
 SpaceSetup.propTypes = {
   // Props from Listing process main page.
-  nextTab: PropTypes.string.isRequired,
-  handleChangePage: PropTypes.func.isRequired,
-  parentId: PropTypes.number,
+  // nextTab: PropTypes.string.isRequired,
+  // handleChangePage: PropTypes.func.isRequired,
+  // parentId: PropTypes.number,
 
   // Sub-Components form values.
   // specificationValues: PropTypes.objectOf(),
@@ -349,9 +352,9 @@ SpaceSetup.propTypes = {
   // holidayTableValues: PropTypes.objectOf(),
 
   // Actions to sub-components inside the SpaceSetup page.
-  startSpaceSetup: PropTypes.func
-  fetchSpecification: PropTypes.func,
-  saveSpecification: PropTypes.func,
+  // startSpaceSetup: PropTypes.func
+  // fetchSpecification: PropTypes.func,
+  // saveSpecification: PropTypes.func,
   // fetchBookingType: PropTypes.func,
   // saveBookingType: PropTypes.func,
   // fetchPricing: PropTypes.func,
