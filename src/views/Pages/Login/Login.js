@@ -34,45 +34,46 @@ const Login = props => {
   const submit = async _ev => {
     _ev.preventDefault();
 
-    dispatch({ type: USER_LOGIN });
-
     const variables = {
       email: _login.email,
       password: _login.password
     };
 
-    const bodyRequest = {
-      query: `query (
-          $email: String!,
-          $password: String!,
-        ) {
-            userLogin (
-              email: $email,
-              password: $password,
-            ) {
-              status
-            }
-          }`,
-      variables
-    };
+    dispatch({ type: USER_LOGIN, payload: variables });
+    console.log(login.resp);
 
-    const resp = await fetch("http://localhost:3000/graphql", {
-      method: "POST",
-      body: JSON.stringify(bodyRequest),
-      headers: {
-        "Content-Type": "application/json",
-        Autorization: "Test"
-      }
-    });
+    // const bodyRequest = {
+    //   query: `query (
+    //       $email: String!,
+    //       $password: String!,
+    //     ) {
+    //         userLogin (
+    //           email: $email,
+    //           password: $password,
+    //         ) {
+    //           status
+    //         }
+    //       }`,
+    //   variables
+    // };
+
+    // const resp = await fetch("http://localhost:3000/graphql", {
+    //   method: "POST",
+    //   body: JSON.stringify(bodyRequest),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Autorization: "Test"
+    //   }
+    // });
     
-    const { data } = await resp.json();
+    // const { data } = await resp.json();
 
-    if (data.userLogin.status == "success") {
-      dispatch({ type: USER_LOGIN_SUCCESS, isLoggedIn: true });
-      console.log(login)
-    }
-    else 
-      dispatch({ type: USER_LOGIN_FAILURE });
+    // if (data.userLogin.status == "success") {
+    //   dispatch({ type: USER_LOGIN_SUCCESS, isLoggedIn: true });
+    //   console.log(login)
+    // }
+    // else 
+    //   dispatch({ type: USER_LOGIN_FAILURE });
 
   };
 

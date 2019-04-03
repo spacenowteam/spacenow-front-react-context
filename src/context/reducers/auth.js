@@ -5,6 +5,8 @@ import {
     USER_LOGIN_FAILURE
 } from '../actions/auth'
 
+import { userLogin } from '../services/auth'
+
 export const initialState = {
   token: null,
   userId: null,
@@ -13,11 +15,14 @@ export const initialState = {
   isError: false
 };
 
-export const authReducer = (state, action) => {
+export const authReducer = async (state, action) => {
   switch (action.type) {
     case USER_LOGIN:
+      const resp = await userLogin({ email: action.payload.email, password: action.payload.password })
+      console.log(resp)
       return {
-        ...state
+        ...state,
+        resp
       };
     case USER_LOGIN_SUCCESS:
       return {
